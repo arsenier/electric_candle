@@ -76,12 +76,15 @@ int main(void)
   TIMSK0 |= (1 << OCIE0A);
 
   sei(); // enable interrupts in general
+
+  uint16_t timing = 0;
   /* Loop */
   while(1)
   {
-    ch1 = random(PWM_MAX_VAL / 2) + PWM_MAX_VAL / 2;
+    ch1 = random(PWM_MAX_VAL / 4) + PWM_MAX_VAL / 4 * 3;
     // ch1 %= PWM_MAX_VAL;
-		_delay_ms(DELAY_MS);
+		// _delay_ms(DELAY_MS);
+    delayMicroseconds(random(100) + 500);
 	}
 }
 /*
